@@ -27,7 +27,7 @@ function playRound(player1, player2) {
 
 let winner = null;
 if (
-    (hand1 === 'rock' && hand2 === 'scissors') ||
+        (hand1 === 'rock' && hand2 === 'scissors') ||
         (hand1 === 'scissors' && hand2 === 'paper') ||
         (hand1 === 'paper' && hand2 === 'rock')
     ) {
