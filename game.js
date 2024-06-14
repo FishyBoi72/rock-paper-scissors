@@ -13,6 +13,16 @@ const player2 = {
     getHand: getHand
 };
 
+const player3 = {
+    name: 'Player 3',
+    getHand: getHand
+};
+
+const player4 = {
+    name: 'Player 4',
+    getHand: getHand
+};
+
 function playRound(player1, player2) {
     const hand1 = player1.getHand();
     const hand2 = player2.getHand();
@@ -40,8 +50,6 @@ if (
     return winner;
 }
 
-//playRound(player1, player2);
-
 function playGame(player1, player2, playUntil) {
     let player1Wins = 0;
     let player2Wins = 0;
@@ -63,5 +71,16 @@ function playGame(player1, player2, playUntil) {
     console.log(`${gameWinner.name} wins the game!`);
     return gameWinner;
 }
-
 playGame(player1, player2, 3);
+
+function playTournament(player1, player2, player3, player4, playUntil) {
+    const semiFinal1Winner = playGame(player1, player2, playUntil);
+    const semiFinal2Winner = playGame(player3, player4, playUntil);
+
+    const tournamentWinner = playGame(semiFinal1Winner, semiFinal2Winner, playUntil);
+
+    console.log(`${tournamentWinner.name} is the world champion!`);
+    return tournamentWinner;
+}
+
+playTournament(player1, player2, player3, player4, 3);
